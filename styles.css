@@ -29,11 +29,15 @@ h5 {
     font-size: 1.2rem;
 }
 
-body {
-    background: rgb(255,255,255);
-    background: linear-gradient(124deg, rgba(255,255,255,1) 29%, rgba(135,206,235,1) 100%);
-    max-height: 100vh;
+.bold {
+    font-weight: 800;
 }
+
+.flex {
+    display: flex;
+}
+
+/*--------------- NAVIGATION ------------------*/
 
 nav {
     display: flex;
@@ -64,12 +68,15 @@ nav ul li {
 .container {
     width: 100%;
     display: flex;
+    background: rgb(255,255,255);
+    background: linear-gradient(124deg, rgba(255,255,255,1) 29%, rgba(135,206,235,1) 100%);
+    max-height: 100vh;
 }
 
 .main-container {
     width: 95%;
     display: grid;
-    padding: 8px;
+    padding: 16px;
 }
 
 .row {
@@ -264,4 +271,53 @@ nav ul li {
 
 .air-info h4 {
     margin: 3.2rem 0;
+}
+
+/*----------- Registration Page ------------*/
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5% 0;
+}
+
+.form-section form {
+    width: 30rem;
+}
+
+.form-section input[type="text"], .form-section input[type="password"],
+.form-section input[type="email"], .form-section input[type="submit"]{
+    padding: 1.2rem;
+    margin: 0.8rem 0;
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #A9A9A9;
+} 
+
+.form-section input[type="text"]:focus , .form-section input[type="password"]:focus,
+.form-section input[type="email"]:focus {
+    outline: 1px solid #4169E1;
+}
+
+.form-section a {
+    margin: 0.4rem 0;
+    color: #87CEEB;
+    text-decoration: none;
+}
+
+.form-section p {
+    margin: 0.8rem 0.4rem;
+    color: #A9A9A9;
+}
+
+.btn {
+    padding: 1.2rem;
+    margin: 0.4rem 0; 
+}
+
+.primary-btn {
+    background-color: #4169E1;
+    color: #fff;
+    border: none;
 }

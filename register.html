@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <div class="form-section">
+        <h2>Register</h2>
+        <p>Welcome! Please enter your information to register.</p>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username"/>
+            <br/>
+            <input type="password" name="password" placeholder="Password" />
+            <br/>
+            <input type="text" name="first_name" placeholder="First Name"/>
+            <br/>
+            <input type="text" name="last_name" placeholder="Last Name" />
+            <br/>
+            <input type="email" name="email" placeholder="Email" />
+            <br/>
+            <input type="text" name="phone" placeholder="Phone Number"/>
+            <br />
+            <div class="flex">
+                <input type="checkbox" name="terms" />
+                <p>Accept our terms and conditions<span class="required">*</span></p>
+            </div>
+            <input class="btn primary-btn" type="submit" name="register" value="Register" />
+        </form>
+        <p>Already a User?</p><a href="#">Login</a>
+    </div>
+</body>
+</html>
