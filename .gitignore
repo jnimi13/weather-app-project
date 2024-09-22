@@ -20,14 +20,6 @@ x86/
 # User-specific files
 *.sln.ide
 
-# ASP.NET Core files
-appsettings*.json
-**/wwwroot/lib/*
-**/wwwroot/css/*
-**/wwwroot/js/*
-**/wwwroot/images/*
-**/wwwroot/*.html
-
 # NuGet packages
 *.nupkg
 **/packages/*
