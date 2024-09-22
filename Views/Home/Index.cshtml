@@ -1,0 +1,148 @@
+﻿@model WeatherApplication.Models.WeatherModelView
+@{
+    Layout = null; // Set your layout here if needed
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <img />
+            <ul>
+                <li class="active"><a href="#"><img class="nav-icon" src="~/images/home-line.png" /></a></li>
+                <li><a href="#"><img class="nav-icon" src="~/images/user-line.png" /></a></li>
+                <li><a href="#"><img class="nav-icon" src="~/images/map-line.png" /></a></li>
+                <li><a href="#"><img class="nav-icon" src="~/images/settings-5-line.png" /></a></li>
+            </ul>
+            <a href="#"><img class="nav-icon" src="~/images/logout-box-line.png" /></a>
+        </nav>
+        <div class="main-container">
+            <div class="row">
+                <div>
+                    <h1>Dashboard</h1>
+                </div>
+                <div>
+                    <div>
+                        <form class="searchbar" id="search-form" method="POST">
+                            <img src="~/images/search-line.png" id="search-btn" />
+                            <input type="text" name="search" id="search-input" required  />
+                            <button type="submit" hidden >Search</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="date-time">
+                        <p id="current-date">@Model.CurrentDate</p>
+                        <p id="current-time">@Model.CurrentTime</p>
+                    </div>
+                    <div class="weather-summary">
+                        <div class="weather-summary-details">
+                            <div>
+                                <h3 id="current-city">@Model.CurrentCity</h3>
+                                <h3 id="current-temperature" class="temperature-text">@Model.CurrentTemperature °C</h3>
+                                <h4 id="current-weather-condition">@Model.WeatherCondition</h4>
+                            </div>
+                            <div class="weather-daily-info">
+                                <div class="weather-bubble">
+                                    <h3>Wind</h3>
+                                    <p id="current-wind">@Model.CurrentWind</p>
+                                </div>
+                                <div class="weather-bubble">
+                                    <h3>Humidity</h3>
+                                    <p id="current-humidity">@Model.CurrentHumidity</p>
+                                </div>
+                                <div class="weather-bubble">
+                                    <h3>UV Index</h3>
+                                    <p id="current-uv">@Model.CurrentUV</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <img class="weather-summary-icon" id="weather-condition-img" src="@Model.WeatherConditionImg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="alerts">
+                        <h3>Alerts & Notifications</h3>
+                        <p>@Model.AlertsMessage</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="forecast-container">
+                    <h3>5 Day Forecast</h3>
+                    <div class="forecast">
+
+                        @foreach (var forecast in Model.Forecasts)
+                        {
+                            <div class="forecast-card">
+                                <h4>@forecast.Day</h4>
+                                <img id="forecast-img-@forecast.Day" class="forecast-icon" src="@forecast.Icon" />
+                                <h5>@forecast.Condition</h5>
+                                <h4>@forecast.Temperature °C</h4>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="additional-weather-info">
+                    <div class="sun-info">
+                        <h3>Sunrise & Sunset</h3>
+                        <div class="sun-info-desc">
+                            <div>
+                                <img class="sun-info-icon" src="~/images/weather-conditions/weather_sunrise_morning_icon.png" />
+                                <p id="current-sunrise">@Model.CurrentSunrise</p>
+                            </div>
+                            <div>
+                                <img class="sun-info-icon" src="~/images/weather-conditions/weather_sunset_evening_icon.png" />
+                                <p id="current-sunset">@Model.CurrentSunset</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="air-info">
+                        <h3>Air Quality</h3>
+                        <h4>Main Pollution:</h4>
+                        <h5 id="current-air-quality-pm">@Model.CurrentAirQualityPM</h5>
+                        <h4 id="current-air-quality">@Model.CurrentAirQuality</h4>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        </div>
+    </div>
+    @* <script type="text/javascript" src="~/js/site.js"></script> *@
+    <script type="text/javascript">
+        document.getElementById('search-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            const searchValue = document.getElementById('search-input').value; // Get the input value
+
+            // Optionally: You can store the search value in local storage
+            // localStorage.setItem('search', searchValue);
+
+            // Reload the page with the form data
+            window.location.href = window.location.pathname + '?city=' + encodeURIComponent(searchValue);
+        });
+
+        // // Optional: Pre-fill the input with the stored search value on page load
+        // window.onload = function() {
+        //     const savedSearch = localStorage.getItem('search');
+        //     if (savedSearch) {
+        //         document.getElementById('search-input').value = savedSearch;
+        //     }
+        // };
+    </script>
+</body>
+</html>

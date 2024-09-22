@@ -1,0 +1,55 @@
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Bb]in/
+[Oo]bj/
+
+# Rider files
+.idea/
+
+# User-specific files
+*.sln.ide
+
+# ASP.NET Core files
+appsettings*.json
+**/wwwroot/lib/*
+**/wwwroot/css/*
+**/wwwroot/js/*
+**/wwwroot/images/*
+**/wwwroot/*.html
+
+# NuGet packages
+*.nupkg
+**/packages/*
+*.snupkg
+
+# Visual Studio Code files
+.vscode/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+
+# Others
+*.db
+*.pdb
+*.mdb
+
+# Publish folder
+publish/
+
+# Azure Web Apps
+wwwroot/aspnetcore-*.log

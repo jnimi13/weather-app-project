@@ -1,0 +1,65 @@
+﻿@model IEnumerable<WeatherApplication.Models.WeatherHistory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Temperature)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Precipitation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WindSpeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WeatherIcon)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RecordedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperature)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precipitation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WindSpeed)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WeatherIcon)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RecordedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location.LocationId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.HistoryId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.HistoryId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.HistoryId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

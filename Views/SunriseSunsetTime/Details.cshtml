@@ -1,0 +1,42 @@
+﻿@model WeatherApplication.Models.SunriseSunsetTime
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>SunriseSunsetTime</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SunriseTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SunriseTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.SunsetTime)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.SunsetTime)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Location.LocationId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.SunriseSunsetId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
