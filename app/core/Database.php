@@ -1,7 +1,7 @@
 <?php
-define("DB_NAME", "weather");
-define("DB_PASS", "weather123");
-define("SERVICE_NAME", "orcl7614");
+define("DB_NAME", "weather"); //ADD YOUR DB NAME
+define("DB_PASS", "weather123"); //ADD YOUR DB PASSWORD
+define("SERVICE_NAME", "orcl7614"); //ADD YOUR SERVICE NAME
 
 
 Trait Database {
@@ -13,7 +13,7 @@ Trait Database {
             (SERVER = DEDICATED)
             (SERVICE_NAME = " . SERVICE_NAME .")
             )
-        )";
+        )"; //ADD YOUR DATABASE CONNECT
 
         $conn = oci_connect(DB_NAME, DB_PASS, $db);
 
